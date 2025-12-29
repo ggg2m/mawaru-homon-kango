@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マワル訪問看護ステーション | 熊本市中央区大江</title>
+    <style>
+        /* --- デザイン設定：キラキラした紫色のPOPスタイル --- */
+        :root {
+            --main-color: #9b59b6; 
+            --bg-purple: #f8f4ff;
+            --dark-purple: #4a235a;
+            --white: #ffffff;
+        }
+
+        /* 全体フォントを丸ゴシック系に固定 */
+        * {
+            font-family: "UD デジタル 教科書体 NK-R", "UD Digi Kyokasho N-R", "HG丸ｺﾞｼｯｸM-PRO", "Hiragino Maru Gothic ProN", "Yu Gothic UI", "Meiryo UI", sans-serif;
+            scroll-behavior: smooth; /* スムーズスクロール有効化 */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            color: var(--dark-purple);
+            line-height: 1.8;
+            background-color: #f3e5f5; /* ベースの紫 */
+            overflow-x: hidden;
+        }
+
+        /* --- 背景のキラキラアニメーション --- */
+        .sparkle-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, #f8f4ff 0%, #ecdcfb 50%, #f8f4ff 100%);
+            z-index: -2;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: transparent;
+        }
+
+        .stars::after {
+            content: "";
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(3px 3px at 50px 160px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: move-stars 20s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes move-stars {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100px); }
+        }
+
+        /* --- ヘッダー --- */
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-bottom: 5px solid var(--main-color);
+            padding: 20px 5%;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(155, 89, 182, 0.2);
+        }
+
+        .header-logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .site-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--main-color);
+        }
+
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--main-color);
+        }
+
+        .header-contact a {
+            color: #e74c3c;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav {
+            background-color: var(--main-color);
+            margin-top: 15px;
+            border-radius: 50px;
+            padding: 5px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0; margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            font-weight: bold;
+        }
+
+        /* --- コンテンツエリア --- */
+        section {
+            background-color: rgba(255, 255, 255, 0.85);
+            margin: 30px auto;
+            padding: 40px 8%;
+            max-width: 900px;
+            border-radius: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            backdrop-filter: blur(4px);
+        }
+
+        /* メインビジュアル設定 */
+        .hero-section {
+            position: relative;
+            background: none;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .hero-bg-img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('illust_main.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.35;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            color: var(--main-color);
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 5px white, -2px -2px 5px white;
+            margin: 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--main-color);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            border-bottom: 3px dotted var(--main-color);
+            width: 100%;
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .service-list li::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+
+        .info-table th {
+            background-color: var(--main-color);
+            color: white;
+            padding: 15px;
+            border-radius: 15px 0 0 15px;
+            width: 30%;
+        }
+
+        .info-table td {
+            background-color: white;
+            padding: 15px;
+            border-radius: 0 15px 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        /* --- トップへ戻るボタン --- */
+        #page-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 100;
+        }
+
+        #page-top a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--main-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        #page-top a:hover {
+            transform: scale(1.1);
+            background: var(--dark-purple);
+        }
+
+        footer {
+            background-color: var(--main-color);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            border-radius: 50px 50px 0 0;
+        }
+
+        @media (max-width: 768px) {
+            .logo-text { font-size: 1.6rem; }
+            .hero-content h1 { font-size: 1.8rem; }
+            .info-table th, .info-table td { display: block; width: 100%; text-align: center; border-radius: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sparkle-bg"></div>
+    <div class="stars"></div>
+
+    <div id="page-top">
+        <a href="#">TOPへ<br>戻る</a>
+    </div>
+
+    <header>
+        <div class="header-logo-area">
+            <img src="icon.jpg" alt="マワルアイコン" class="site-icon">
+            <span class="logo-text">マワル訪問看護ステーション</span>
+        </div>
+        <div class="header-contact">
+            <small>✨ お気軽にお問い合わせください ✨</small><br>
+            <a href="tel:0962021965">📞 096-202-1965</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">ステーションについて</a></li>
+                <li><a href="#service">サービス内容</a></li>
+                <li><a href="#access">事業所情報</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-bg-img"></div>
+            <div class="hero-content">
+                <h1>自分らしく、住み慣れた場所で。</h1>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title">当ステーションについて</h2>
+            <div style="text-align: left; background: #fff; padding: 25px; border-radius: 30px;">
+                <p>
+                    住み慣れた地域やご自宅で<br>
+                    みなさまが<strong>自分らしく</strong>安心して生活できるように共に考えていきたいと思っています。
+                </p>
+                <p>
+                    みなさまがその人らしく充実かつ安心して過ごせるよう、<br>
+                    個々のライフスタイルやニーズに真摯に向き合い、温かいサポートを提供することをお約束します。<br>
+                    住環境や生活様式に合わせた適切なケアを通じて、皆さまが笑顔で満たされ、豊かな日常を過ごせるよう、これからもお手伝いさせていただきます。
+                </p>
+                <div style="background: #f8f4ff; border: 2px dashed var(--main-color); padding: 15px; border-radius: 20px; text-align: center; font-weight: bold; margin-top: 20px;">
+                    🌟 24時間体制 🌟<br>
+                    契約者様に対しては、24時間365日の緊急対応体制を整えております。
+                </div>
+            </div>
+        </section>
+
+        <section id="service">
+            <h2 class="section-title">サービス内容</h2>
+            <ul class="service-list">
+                <li>医師の指示に基づく医療処置（点滴・注射・床ずれ処置など）</li>
+                <li>食事・排泄・清潔の介助</li>
+                <li>リハビリテーション、認知症ケア</li>
+                <li>服薬管理</li>
+                <li>終末期ケア、ご家族への介護指導</li>
+                <li>精神科訪問看護、不登校支援</li>
+                <li>多胎経産婦のレスパイトケア、多胎児の発育支援、ケア</li>
+            </ul>
+        </section>
+
+        <section id="access">
+            <h2 class="section-title">事業所・連絡先情報</h2>
+            <table class="info-table">
+                <tr><th>運営法人</th><td>株式会社クロミキ</td></tr>
+                <tr><th>事業所名</th><td>マワル訪問看護ステーション</td></tr>
+                <tr><th>営業時間</th><td>平日 8:30 ～ 17:30<br><small>※要相談にて24時間365日対応</small></td></tr>
+                <tr><th>定休日</th><td>土曜日・日曜日・祝日</td></tr>
+                <tr><th>所在地</th>
+                    <td>
+                        〒862-0971<br>
+                        熊本県熊本市中央区大江4丁目7-10-1<br>
+                        <strong>【オフィス】</strong><br>
+                        〒862-0971<br>
+                        熊本県熊本市中央区大江4丁目8-22 グレイスコート六番館202
+                    </td>
+                </tr>
+                <tr><th>電話番号</th><td>096-202-1965</td></tr>
+                <tr><th>メール</th><td><a href="mailto:kuromiki0322@yahoo.co.jp" style="color:var(--main-color); font-weight: bold;">kuromiki0322@yahoo.co.jp</a></td></tr>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023-2025 マワル訪問看護ステーション</p>
+    </footer>
+
+</body>
+</html>
