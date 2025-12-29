@@ -19,7 +19,7 @@
         * {
             font-family: "UD デジタル 教科書体 NK-R", "UD Digi Kyokasho N-R", "HG丸ｺﾞｼｯｸM-PRO", "Hiragino Maru Gothic ProN", "Yu Gothic UI", "Meiryo UI", sans-serif;
             scroll-behavior: smooth;
-            box-sizing: border-box; /* 崩れ防止 */
+            box-sizing: border-box;
         }
 
         body {
@@ -30,7 +30,7 @@
             overflow-x: hidden;
         }
 
-        /* --- 背景アニメーション --- */
+        /* --- 背景演出 --- */
         .sparkle-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(135deg, #f8f4ff 0%, #ecdcfb 50%, #f8f4ff 100%);
@@ -56,102 +56,94 @@
 
         /* --- ヘッダー --- */
         header {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.92);
             border-bottom: 5px solid var(--main-color);
-            padding: 20px 15px;
+            padding: 20px 10px;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
-        .site-icon {
-            width: 60px; height: 60px; border-radius: 50%;
-            object-fit: cover; border: 2px solid var(--main-color);
-        }
-        .logo-text {
-            font-size: 1.8rem; font-weight: bold; color: var(--main-color);
-            display: block; margin-top: 5px;
-        }
-        .header-contact a {
-            color: #e74c3c; font-size: 1.5rem; font-weight: bold;
-            text-decoration: none; word-break: break-all;
-        }
+        .header-logo-area { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 15px; }
+        .site-icon { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid var(--main-color); }
+        .logo-text { font-size: 1.8rem; font-weight: bold; color: var(--main-color); }
+        .header-contact a { color: #e74c3c; font-size: 1.6rem; font-weight: bold; text-decoration: none; }
 
-        nav { background-color: var(--main-color); margin-top: 15px; border-radius: 25px; }
+        /* ナビゲーション（目次）の調整 */
+        nav { background-color: var(--main-color); margin-top: 15px; border-radius: 50px; padding: 2px; }
         nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; flex-wrap: wrap; }
-        nav ul li a { color: var(--white); text-decoration: none; padding: 10px 15px; display: block; font-weight: bold; font-size: 0.9rem; }
+        nav ul li a { color: var(--white); text-decoration: none; padding: 12px 18px; display: block; font-weight: bold; font-size: 1rem; }
 
         /* --- コンテンツエリア --- */
         section {
-            background-color: rgba(255, 255, 255, 0.85);
-            margin: 20px auto; padding: 30px 20px;
+            background-color: rgba(255, 255, 255, 0.88);
+            margin: 30px auto; padding: 40px 25px;
             width: 92%; max-width: 900px;
-            border-radius: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-radius: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             backdrop-filter: blur(4px);
         }
 
-        /* メインビジュアル */
         .hero-section {
-            position: relative; min-height: 300px;
+            position: relative; min-height: 350px;
             display: flex; align-items: center; justify-content: center;
-            overflow: hidden; border-radius: 30px;
+            overflow: hidden; border-radius: 40px;
         }
         .hero-bg-img {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background-image: url('illust_main.jpg');
             background-size: cover; background-position: center;
-            opacity: 0.3; z-index: 1;
+            opacity: 0.35; z-index: 1;
         }
-        .hero-content { position: relative; z-index: 2; padding: 20px; }
+        .hero-content { position: relative; z-index: 2; text-align: center; }
         .hero-content h1 {
-            color: var(--main-color); font-size: 1.8rem;
-            text-shadow: 2px 2px 4px white; margin: 0;
-            line-height: 1.3;
+            color: var(--main-color); font-size: 2.2rem;
+            text-shadow: 2px 2px 5px white, -2px -2px 5px white;
+            margin: 0; line-height: 1.4;
         }
 
         .section-title {
-            text-align: center; color: var(--main-color); font-size: 1.5rem;
-            margin-bottom: 20px; border-bottom: 3px dotted var(--main-color);
+            text-align: center; color: var(--main-color); font-size: 1.8rem;
+            margin-bottom: 30px; border-bottom: 3px dotted var(--main-color);
         }
 
         .service-list { list-style: none; padding: 0; }
-        .service-list li { position: relative; padding-left: 30px; margin-bottom: 10px; font-size: 1rem; }
+        .service-list li { position: relative; padding-left: 35px; margin-bottom: 15px; font-size: 1.1rem; }
         .service-list li::before { content: "✨"; position: absolute; left: 0; }
 
         /* --- テーブル --- */
-        .info-table { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
+        .info-table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
         .info-table th {
             background-color: var(--main-color); color: white;
-            padding: 10px; border-radius: 10px; width: 30%;
-            display: table-cell; font-size: 0.9rem;
+            padding: 15px; border-radius: 15px 0 0 15px; width: 30%;
+            font-size: 1rem;
         }
         .info-table td {
-            background-color: white; padding: 10px;
-            border-radius: 10px; border: 1px solid #ddd; font-size: 0.95rem;
+            background-color: white; padding: 15px;
+            border-radius: 0 15px 15px 0; border: 1px solid #ddd; font-size: 1rem;
         }
 
         /* --- トップ戻る --- */
-        #page-top { position: fixed; right: 15px; bottom: 15px; z-index: 100; }
+        #page-top { position: fixed; right: 20px; bottom: 20px; z-index: 100; }
         #page-top a {
             display: flex; justify-content: center; align-items: center;
-            background: var(--main-color); color: white; width: 50px; height: 50px;
-            text-decoration: none; border-radius: 50%; font-size: 0.7rem; text-align: center;
+            background: var(--main-color); color: white; width: 60px; height: 60px;
+            text-decoration: none; border-radius: 50%; font-size: 0.8rem; text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        footer { background-color: var(--main-color); color: white; text-align: center; padding: 30px 10px; border-radius: 30px 30px 0 0; font-size: 0.8rem; }
+        footer { background-color: var(--main-color); color: white; text-align: center; padding: 40px 10px; border-radius: 50px 50px 0 0; }
 
         /* --- スマホ専用調整 --- */
         @media (max-width: 600px) {
-            .logo-text { font-size: 1.4rem; }
-            .header-contact a { font-size: 1.3rem; }
-            .hero-content h1 { font-size: 1.4rem; }
+            .logo-text { font-size: 1.5rem; }
+            .header-contact a { font-size: 1.4rem; }
+            nav ul li a { padding: 10px 12px; font-size: 0.85rem; }
+            .hero-content h1 { font-size: 1.6rem; }
             .info-table th, .info-table td {
-                display: block; /* 縦に並べる */
-                width: 100%;
-                text-align: center;
-                border-radius: 10px;
+                display: block; width: 100%; text-align: center; border-radius: 15px;
             }
             .info-table th { margin-bottom: 2px; }
             .info-table td { margin-bottom: 15px; }
-            section { padding: 25px 15px; }
+            section { padding: 30px 15px; }
         }
     </style>
 </head>
@@ -175,9 +167,9 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#about">について</a></li>
-                <li><a href="#service">サービス</a></li>
-                <li><a href="#access">情報</a></li>
+                <li><a href="#about">ステーションについて</a></li>
+                <li><a href="#service">サービス内容</a></li>
+                <li><a href="#access">事業所情報</a></li>
             </ul>
         </nav>
     </header>
@@ -192,12 +184,12 @@
 
         <section id="about">
             <h2 class="section-title">当ステーションについて</h2>
-            <div style="text-align: left; background: #fff; padding: 20px; border-radius: 20px;">
+            <div style="text-align: left; background: #fff; padding: 25px; border-radius: 30px;">
                 <p>住み慣れた地域やご自宅で、みなさまが<strong>自分らしく</strong>安心して生活できるように共に考えていきたいと思っています。</p>
-                <p>個々のニーズに真摯に向き合い、温かいサポートを提供することをお約束します。</p>
-                <div style="background: #f8f4ff; border: 2px dashed var(--main-color); padding: 15px; border-radius: 15px; text-align: center; font-weight: bold; margin-top: 15px;">
+                <p>みなさまがその人らしく充実かつ安心して過ごせるよう、個々のライフスタイルやニーズに真摯に向き合い、温かいサポートを提供することをお約束します。</p>
+                <div style="background: #f8f4ff; border: 2px dashed var(--main-color); padding: 20px; border-radius: 20px; text-align: center; font-weight: bold; margin-top: 20px;">
                     🌟 24時間体制 🌟<br>
-                    <small>24時間365日の緊急対応体制を整えております。</small>
+                    <small>契約者様に対しては、24時間365日の緊急対応体制を整えております。</small>
                 </div>
             </div>
         </section>
@@ -205,12 +197,12 @@
         <section id="service">
             <h2 class="section-title">サービス内容</h2>
             <ul class="service-list">
-                <li>医師の指示に基づく医療処置</li>
+                <li>医師の指示に基づく医療処置（点滴・注射・床ずれ処置など）</li>
                 <li>食事・排泄・清潔の介助</li>
                 <li>リハビリテーション、認知症ケア</li>
-                <li>服薬管理、終末期ケア</li>
+                <li>服薬管理、終末期ケア、ご家族への介護指導</li>
                 <li>精神科訪問看護、不登校支援</li>
-                <li>多胎児の発育支援、レスパイトケア</li>
+                <li>多胎経産婦のレスパイトケア、多胎児の発育支援、ケア</li>
             </ul>
         </section>
 
@@ -218,14 +210,18 @@
             <h2 class="section-title">事業所・連絡先情報</h2>
             <table class="info-table">
                 <tr><th>運営法人</th><td>株式会社クロミキ</td></tr>
-                <tr><th>営業時間</th><td>平日 8:30 ～ 17:30<br><small>※要相談にて24時間対応</small></td></tr>
+                <tr><th>事業所名</th><td>マワル訪問看護ステーション</td></tr>
+                <tr><th>営業時間</th><td>平日 8:30 ～ 17:30<br><small>※要相談にて24時間365日対応</small></td></tr>
                 <tr><th>定休日</th><td>土曜日・日曜日・祝日</td></tr>
                 <tr><th>所在地</th>
                     <td>〒862-0971<br>熊本県熊本市中央区大江4丁目7-10-1<br>
-                        <strong>【オフィス】</strong><br>大江4丁目8-22 グレイスコート六番館202
+                        <strong>【オフィス】</strong><br>
+                        〒862-0971<br>
+                        熊本県熊本市中央区大江4丁目8-22 グレイスコート六番館202
                     </td>
                 </tr>
                 <tr><th>電話番号</th><td>096-202-1965</td></tr>
+                <tr><th>メール</th><td><a href="mailto:kuromiki0322@yahoo.co.jp" style="color:var(--main-color); font-weight: bold;">kuromiki0322@yahoo.co.jp</a></td></tr>
             </table>
         </section>
     </main>
