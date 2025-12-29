@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>マワル訪問看護ステーション | 熊本市中央区大江の自分らしい訪問看護</title>
-    <meta name="description" content="熊本市中央区大江にあるマワル訪問看護ステーション（株式会社クロミキ）です。24時間365日対応（要相談）で、不登校支援や多胎児ケアなど、自分らしく安心してご自宅で過ごせるよう専門的な看護を提供します。">
+    <meta name="description" content="熊本市中央区大江にあるマワル訪問看護ステーション（株式会社クロミキ）です。24時間365日対応（要相談）で, 不登校支援や多胎児ケアなど, 自分らしく安心してご自宅で過ごせるよう専門的な看護を提供します。">
     <meta name="keywords" content="訪問看護, 熊本市, 中央区, 大江, マワル, 株式会社クロミキ, 不登校支援, 多胎児ケア">
 
     <meta property="og:title" content="マワル訪問看護ステーション">
-    <meta property="og:description" content="熊本市中央区大江で、自分らしく住み慣れた場所での生活をサポートします。">
+    <meta property="og:description" content="熊本市中央区大江で, 自分らしく住み慣れた場所での生活をサポートします。">
     <meta property="og:image" content="https://ggg2m.github.io/mawaru-homon-kango/icon.jpg">
     <meta property="og:url" content="https://ggg2m.github.io/mawaru-homon-kango/">
     <meta property="og:type" content="website">
@@ -61,10 +61,10 @@
             to { transform: translateY(-100px); }
         }
 
-        /* --- ヘッダー（画像背景設定） --- */
+        /* --- ヘッダー（背景: illust_main.jpg） --- */
         header {
             position: relative;
-            background-image: linear-gradient(rgba(155, 89, 182, 0.75), rgba(155, 89, 182, 0.75)), url('new_illust.jpg');
+            background-image: linear-gradient(rgba(155, 89, 182, 0.75), rgba(155, 89, 182, 0.75)), url('illust_main.jpg');
             background-size: cover;
             background-position: center;
             padding: 40px 10px;
@@ -91,15 +91,36 @@
             backdrop-filter: blur(4px);
         }
 
-        /* メインビジュアル（白背景） */
+        /* メインビジュアル（背景: new_illust.jpg） */
         .hero-section {
+            position: relative;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 40px;
+            background: none; /* デフォルト背景消去 */
+        }
+        .hero-bg-img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('new_illust.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.35; /* 文字が見やすい透明度 */
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
-            padding: 60px 20px;
         }
         .hero-content h1 {
             color: var(--main-color); font-size: 2.5rem;
             margin: 0; line-height: 1.5;
             font-weight: bold;
+            text-shadow: 2px 2px 5px white, -2px -2px 5px white;
         }
 
         .section-title {
@@ -121,7 +142,7 @@
             border-radius: 0 15px 15px 0; border: 1px solid #ddd;
         }
 
-        /* マップのスタイル修正 */
+        /* マップのスタイル */
         .map-container {
             margin-top: 20px;
             width: 100%;
@@ -182,6 +203,7 @@
 
     <main>
         <section class="hero-section">
+            <div class="hero-bg-img"></div>
             <div class="hero-content">
                 <h1>自分らしく<br>住み慣れた場所で</h1>
             </div>
@@ -191,10 +213,10 @@
             <h2 class="section-title">当ステーションについて</h2>
             <div style="text-align: left; background: #fff; padding: 25px; border-radius: 30px;">
                 <p>住み慣れた地域やご自宅で、みなさまが<strong>自分らしく</strong>安心して生活できるように共に考えていきたいと思っています。</p>
-                <p>みなさまがその人らしく充実かつ安心して過ごせるよう、個々のライフスタイルやニーズに真摯に向き合い、温かいサポートを提供することをお約束します。</p>
+                <p>みなさまがその人らしく充実かつ安心して過ごせるよう、個々のライフスタイルやニーズに真摯に向き合い, 温かいサポートを提供することをお約束します。</p>
                 <div style="background: #f8f4ff; border: 2px dashed var(--main-color); padding: 20px; border-radius: 20px; text-align: center; font-weight: bold; margin-top: 20px;">
                     🌟 24時間体制 🌟<br>
-                    <small>契約者様に対しては、24時間365日の緊急対応体制を整えております。</small>
+                    <small>契約者様に対しては, 24時間365日の緊急対応体制を整えております。</small>
                 </div>
             </div>
         </section>
@@ -224,7 +246,7 @@
                         〒862-0971<br>
                         熊本県熊本市中央区大江4丁目8-22 グレイスコート六番館202
                         <div class="map-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.189531189441!2d130.72591637624138!3d32.79919568322676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x353f5038ecf1676f%3A0xe53e87850a04918e!2z44CSODYyLTA5NzEg54aK5pys55yM54aK5pys5biC5Lit5aSu5Yy65aSn5rGf77yU5LiB55uu77yY4oiS77yS77yS!5e0!3m2!1sja!2sjp!4v1715400000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.1812683955684!2d130.72477387635904!3d32.79812428308693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x353f86058d94944d%3A0x6d9f86058d94944d!2z44CSODYyLTA5NzEg54aK5pys55yM54aK5pys5biC5Lit5aSu5Yy65aSn5rGf77yU5LiB55uu77yY4oiS77yS77ySIOOCsOODrOOCpOOCueOCs-ODvOODiOWFre逡qqOmkqDIwMg!5e0!3m2!1sja!2sjp!4v1710000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </td>
                 </tr>
