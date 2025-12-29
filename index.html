@@ -61,25 +61,23 @@
             to { transform: translateY(-100px); }
         }
 
-        /* --- ヘッダー（画像背景に変更） --- */
+        /* --- ヘッダー（画像背景設定） --- */
         header {
             position: relative;
-            background-image: linear-gradient(rgba(155, 89, 182, 0.7), rgba(155, 89, 182, 0.7)), url('illust_main.jpg');
+            background-image: linear-gradient(rgba(155, 89, 182, 0.75), rgba(155, 89, 182, 0.75)), url('new_illust.jpg');
             background-size: cover;
             background-position: center;
-            padding: 30px 10px;
+            padding: 40px 10px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             color: var(--white);
         }
-        .header-logo-area { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 15px; }
-        .site-icon { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--white); background: white; }
-        .logo-text { font-size: 1.8rem; font-weight: bold; color: var(--white); text-shadow: 1px 1px 4px rgba(0,0,0,0.5); }
-        .header-contact small { color: #f3e5f5; opacity: 0.9; font-weight: bold; }
-        .header-contact a { color: var(--white); font-size: 1.8rem; font-weight: bold; text-decoration: none; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); }
+        .header-logo-area { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 20px; }
+        .site-icon { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid var(--white); background: white; }
+        .logo-text { font-size: 1.8rem; font-weight: bold; color: var(--white); text-shadow: 2px 2px 5px rgba(0,0,0,0.4); }
+        .header-contact a { color: var(--white); font-size: 1.8rem; font-weight: bold; text-decoration: none; text-shadow: 2px 2px 5px rgba(0,0,0,0.4); }
 
-        /* ナビゲーション */
-        nav { background-color: rgba(74, 35, 90, 0.6); margin-top: 15px; border-radius: 50px; padding: 2px; backdrop-filter: blur(5px); }
+        nav { background-color: rgba(74, 35, 90, 0.65); margin-top: 15px; border-radius: 50px; padding: 2px; backdrop-filter: blur(5px); }
         nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; flex-wrap: wrap; }
         nav ul li a { color: var(--white); text-decoration: none; padding: 12px 18px; display: block; font-weight: bold; font-size: 1rem; }
 
@@ -93,11 +91,9 @@
             backdrop-filter: blur(4px);
         }
 
-        /* メインビジュアル（白背景に戻す） */
+        /* メインビジュアル（白背景） */
         .hero-section {
             text-align: center;
-            min-height: auto;
-            display: block;
             padding: 60px 20px;
         }
         .hero-content h1 {
@@ -119,20 +115,22 @@
         .info-table th {
             background-color: var(--main-color); color: white;
             padding: 15px; border-radius: 15px 0 0 15px; width: 30%;
-            font-size: 1rem;
         }
         .info-table td {
             background-color: white; padding: 15px;
-            border-radius: 0 15px 15px 0; border: 1px solid #ddd; font-size: 1rem;
+            border-radius: 0 15px 15px 0; border: 1px solid #ddd;
         }
 
+        /* マップのスタイル修正 */
         .map-container {
             margin-top: 20px;
             width: 100%;
+            height: 300px;
             border-radius: 20px;
             overflow: hidden;
             border: 2px solid var(--main-color);
         }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
 
         #page-top { position: fixed; right: 20px; bottom: 20px; z-index: 100; }
         #page-top a {
@@ -146,14 +144,12 @@
 
         @media (max-width: 600px) {
             .logo-text { font-size: 1.5rem; }
-            .header-contact a { font-size: 1.4rem; }
-            nav ul li a { padding: 10px 12px; font-size: 0.85rem; }
+            .header-contact a { font-size: 1.5rem; }
+            nav ul li a { padding: 10px 10px; font-size: 0.85rem; }
             .hero-content h1 { font-size: 1.8rem; }
-            .hero-section { padding: 40px 15px; }
             .info-table th, .info-table td { display: block; width: 100%; text-align: center; border-radius: 15px; }
             .info-table th { margin-bottom: 2px; }
             .info-table td { margin-bottom: 15px; }
-            section { padding: 30px 15px; }
         }
     </style>
 </head>
@@ -228,7 +224,7 @@
                         〒862-0971<br>
                         熊本県熊本市中央区大江4丁目8-22 グレイスコート六番館202
                         <div class="map-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m3!1d3353.11189389816!2d130.722138!3d32.798139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3540f47285555555%3A0x7d55555555555555!2z44CSODYyLTA5NzEg54aK5pys55yM54aK5pys5biC5Lit5aSu5Yy65aSn5rGf77yU5LiB55uu77yY4oiS77yS77yS!5e0!3m2!1sja!2sjp!4v1710000000000!5m2!1sja!2sjp" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.189531189441!2d130.72591637624138!3d32.79919568322676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x353f5038ecf1676f%3A0xe53e87850a04918e!2z44CSODYyLTA5NzEg54aK5pys55yM54aK5pys5biC5Lit5aSu5Yy65aSn5rGf77yU5LiB55uu77yY4oiS77yS77yS!5e0!3m2!1sja!2sjp!4v1715400000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </td>
                 </tr>
