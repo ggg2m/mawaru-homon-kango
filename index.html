@@ -61,20 +61,22 @@
             to { transform: translateY(-100px); }
         }
 
-        /* --- ヘッダー --- */
+        /* --- ヘッダー（紫背景に変更） --- */
         header {
-            background-color: rgba(255, 255, 255, 0.92);
-            border-bottom: 5px solid var(--main-color);
+            background-color: var(--main-color); /* 紫色に変更 */
             padding: 20px 10px;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            color: var(--white); /* 全体の文字色を白に */
         }
         .header-logo-area { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 15px; }
-        .site-icon { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid var(--main-color); }
-        .logo-text { font-size: 1.8rem; font-weight: bold; color: var(--main-color); }
-        .header-contact a { color: #e74c3c; font-size: 1.6rem; font-weight: bold; text-decoration: none; }
+        .site-icon { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid var(--white); }
+        .logo-text { font-size: 1.8rem; font-weight: bold; color: var(--white); }
+        .header-contact small { color: #f3e5f5; opacity: 0.9; }
+        .header-contact a { color: var(--white); font-size: 1.6rem; font-weight: bold; text-decoration: none; }
 
-        nav { background-color: var(--main-color); margin-top: 15px; border-radius: 50px; padding: 2px; }
+        /* ナビゲーション */
+        nav { background-color: rgba(255, 255, 255, 0.2); margin-top: 15px; border-radius: 50px; padding: 2px; }
         nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; flex-wrap: wrap; }
         nav ul li a { color: var(--white); text-decoration: none; padding: 12px 18px; display: block; font-weight: bold; font-size: 1rem; }
 
@@ -126,7 +128,6 @@
             border-radius: 0 15px 15px 0; border: 1px solid #ddd; font-size: 1rem;
         }
 
-        /* マップのスタイル */
         .map-container {
             margin-top: 20px;
             width: 100%;
@@ -188,7 +189,7 @@
         <section class="hero-section">
             <div class="hero-bg-img"></div>
             <div class="hero-content">
-                <h1>自分らしく<br>住み慣れた場所で</h1>
+                <h1>自分らしく、<br>住み慣れた場所で。</h1>
             </div>
         </section>
 
@@ -229,7 +230,7 @@
                         〒862-0971<br>
                         熊本県熊本市中央区大江4丁目8-22 グレイスコート六番館202
                         <div class="map-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.4839812423184!2d130.72370777553752!3d32.80602057365215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3540f3f6e1f061b7%3A0x6a0904323e986047!2z44CSODYyLTA5NzEg54aK5pys55yM54aK5pys5biC5Lit5aSu5Yy65aSn5rGf77yU5LiB55uu77yY4oiS77yS77yS!5e0!3m2!1sja!2sjp!4v1716335000000!5m2!1sja!2sjp" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.111111111111!2d130.723!3d32.802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3540f41111111111%3A0x1111111111111111!2z54aK5pys5biC5Lit5aSu5Yy65aSn5rGfN丁目7-10!5e0!3m2!1sja!2sjp!4v1234567890123" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </td>
                 </tr>
