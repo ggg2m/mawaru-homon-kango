@@ -61,22 +61,25 @@
             to { transform: translateY(-100px); }
         }
 
-        /* --- ヘッダー（紫背景に変更） --- */
+        /* --- ヘッダー（画像背景に変更） --- */
         header {
-            background-color: var(--main-color); /* 紫色に変更 */
-            padding: 20px 10px;
+            position: relative;
+            background-image: linear-gradient(rgba(155, 89, 182, 0.7), rgba(155, 89, 182, 0.7)), url('illust_main.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 30px 10px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            color: var(--white); /* 全体の文字色を白に */
+            color: var(--white);
         }
         .header-logo-area { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 15px; }
-        .site-icon { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid var(--white); }
-        .logo-text { font-size: 1.8rem; font-weight: bold; color: var(--white); }
-        .header-contact small { color: #f3e5f5; opacity: 0.9; }
-        .header-contact a { color: var(--white); font-size: 1.6rem; font-weight: bold; text-decoration: none; }
+        .site-icon { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--white); background: white; }
+        .logo-text { font-size: 1.8rem; font-weight: bold; color: var(--white); text-shadow: 1px 1px 4px rgba(0,0,0,0.5); }
+        .header-contact small { color: #f3e5f5; opacity: 0.9; font-weight: bold; }
+        .header-contact a { color: var(--white); font-size: 1.8rem; font-weight: bold; text-decoration: none; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); }
 
         /* ナビゲーション */
-        nav { background-color: rgba(255, 255, 255, 0.2); margin-top: 15px; border-radius: 50px; padding: 2px; }
+        nav { background-color: rgba(74, 35, 90, 0.6); margin-top: 15px; border-radius: 50px; padding: 2px; backdrop-filter: blur(5px); }
         nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; flex-wrap: wrap; }
         nav ul li a { color: var(--white); text-decoration: none; padding: 12px 18px; display: block; font-weight: bold; font-size: 1rem; }
 
@@ -90,22 +93,17 @@
             backdrop-filter: blur(4px);
         }
 
+        /* メインビジュアル（白背景に戻す） */
         .hero-section {
-            position: relative; min-height: 350px;
-            display: flex; align-items: center; justify-content: center;
-            overflow: hidden; border-radius: 40px;
+            text-align: center;
+            min-height: auto;
+            display: block;
+            padding: 60px 20px;
         }
-        .hero-bg-img {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('illust_main.jpg');
-            background-size: cover; background-position: center;
-            opacity: 0.35; z-index: 1;
-        }
-        .hero-content { position: relative; z-index: 2; text-align: center; }
         .hero-content h1 {
-            color: var(--main-color); font-size: 2.2rem;
-            text-shadow: 2px 2px 5px white, -2px -2px 5px white;
-            margin: 0; line-height: 1.4;
+            color: var(--main-color); font-size: 2.5rem;
+            margin: 0; line-height: 1.5;
+            font-weight: bold;
         }
 
         .section-title {
@@ -150,7 +148,8 @@
             .logo-text { font-size: 1.5rem; }
             .header-contact a { font-size: 1.4rem; }
             nav ul li a { padding: 10px 12px; font-size: 0.85rem; }
-            .hero-content h1 { font-size: 1.6rem; }
+            .hero-content h1 { font-size: 1.8rem; }
+            .hero-section { padding: 40px 15px; }
             .info-table th, .info-table td { display: block; width: 100%; text-align: center; border-radius: 15px; }
             .info-table th { margin-bottom: 2px; }
             .info-table td { margin-bottom: 15px; }
@@ -187,9 +186,8 @@
 
     <main>
         <section class="hero-section">
-            <div class="hero-bg-img"></div>
             <div class="hero-content">
-                <h1>自分らしく、<br>住み慣れた場所で。</h1>
+                <h1>自分らしく<br>住み慣れた場所で</h1>
             </div>
         </section>
 
@@ -230,7 +228,7 @@
                         〒862-0971<br>
                         熊本県熊本市中央区大江4丁目8-22 グレイスコート六番館202
                         <div class="map-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.111111111111!2d130.723!3d32.802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3540f41111111111%3A0x1111111111111111!2z54aK5pys5biC5Lit5aSu5Yy65aSn5rGfN丁目7-10!5e0!3m2!1sja!2sjp!4v1234567890123" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m3!1d3353.11189389816!2d130.722138!3d32.798139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3540f47285555555%3A0x7d55555555555555!2z44CSODYyLTA5NzEg54aK5pys55yM54aK5pys5biC5Lit5aSu5Yy65aSn5rGf77yU5LiB55uu77yY4oiS77yS77yS!5e0!3m2!1sja!2sjp!4v1710000000000!5m2!1sja!2sjp" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </td>
                 </tr>
