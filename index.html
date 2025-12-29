@@ -8,6 +8,13 @@
     <meta name="description" content="熊本市中央区大江にあるマワル訪問看護ステーション（株式会社クロミキ）です。24時間365日対応（要相談）で、不登校支援や多胎児ケアなど、自分らしく安心してご自宅で過ごせるよう専門的な看護を提供します。">
     <meta name="keywords" content="訪問看護, 熊本市, 中央区, 大江, マワル, 株式会社クロミキ, 不登校支援, 多胎児ケア">
 
+    <meta property="og:title" content="マワル訪問看護ステーション">
+    <meta property="og:description" content="熊本市中央区大江で、自分らしく住み慣れた場所での生活をサポートします。">
+    <meta property="og:image" content="https://ggg2m.github.io/mawaru-homon-kango/icon.jpg">
+    <meta property="og:url" content="https://ggg2m.github.io/mawaru-homon-kango/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="マワル訪問看護ステーション">
+
     <style>
         :root {
             --main-color: #9b59b6; 
@@ -67,7 +74,6 @@
         .logo-text { font-size: 1.8rem; font-weight: bold; color: var(--main-color); }
         .header-contact a { color: #e74c3c; font-size: 1.6rem; font-weight: bold; text-decoration: none; }
 
-        /* ナビゲーション（目次）の調整 */
         nav { background-color: var(--main-color); margin-top: 15px; border-radius: 50px; padding: 2px; }
         nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; flex-wrap: wrap; }
         nav ul li a { color: var(--white); text-decoration: none; padding: 12px 18px; display: block; font-weight: bold; font-size: 1rem; }
@@ -109,7 +115,6 @@
         .service-list li { position: relative; padding-left: 35px; margin-bottom: 15px; font-size: 1.1rem; }
         .service-list li::before { content: "✨"; position: absolute; left: 0; }
 
-        /* --- テーブル --- */
         .info-table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
         .info-table th {
             background-color: var(--main-color); color: white;
@@ -121,7 +126,15 @@
             border-radius: 0 15px 15px 0; border: 1px solid #ddd; font-size: 1rem;
         }
 
-        /* --- トップ戻る --- */
+        /* マップのスタイル */
+        .map-container {
+            margin-top: 20px;
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--main-color);
+        }
+
         #page-top { position: fixed; right: 20px; bottom: 20px; z-index: 100; }
         #page-top a {
             display: flex; justify-content: center; align-items: center;
@@ -132,15 +145,12 @@
 
         footer { background-color: var(--main-color); color: white; text-align: center; padding: 40px 10px; border-radius: 50px 50px 0 0; }
 
-        /* --- スマホ専用調整 --- */
         @media (max-width: 600px) {
             .logo-text { font-size: 1.5rem; }
             .header-contact a { font-size: 1.4rem; }
             nav ul li a { padding: 10px 12px; font-size: 0.85rem; }
             .hero-content h1 { font-size: 1.6rem; }
-            .info-table th, .info-table td {
-                display: block; width: 100%; text-align: center; border-radius: 15px;
-            }
+            .info-table th, .info-table td { display: block; width: 100%; text-align: center; border-radius: 15px; }
             .info-table th { margin-bottom: 2px; }
             .info-table td { margin-bottom: 15px; }
             section { padding: 30px 15px; }
@@ -218,6 +228,9 @@
                         <strong>【オフィス】</strong><br>
                         〒862-0971<br>
                         熊本県熊本市中央区大江4丁目8-22 グレイスコート六番館202
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.4839812423184!2d130.72370777553752!3d32.80602057365215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3540f3f6e1f061b7%3A0x6a0904323e986047!2z44CSODYyLTA5NzEg54aK5pys55yM54aK5pys5biC5Lit5aSu5Yy65aSn5rGf77yU5LiB55uu77yY4oiS77yS77yS!5e0!3m2!1sja!2sjp!4v1716335000000!5m2!1sja!2sjp" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
                     </td>
                 </tr>
                 <tr><th>電話番号</th><td>096-202-1965</td></tr>
