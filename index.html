@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="google-site-verification" content="ojUXH0BgbbCu3_rv-6rs9KvocQlcxydKa8PGxQA-CAw" />
     
     <title>マワル訪問看護ステーション | 熊本市中央区大江の自分らしい訪問看護</title>
@@ -32,13 +32,18 @@
             box-sizing: border-box;
         }
 
-        body {
+        html, body {
+            width: 100%;
+            height: 100%;
             margin: 0; 
             padding: 0;
+            overflow-x: hidden;
+        }
+
+        body {
             color: var(--dark-purple);
             line-height: 1.6;
             background-color: var(--light-gray);
-            overflow-x: hidden;
         }
 
         /* --- 背景演出 --- */
@@ -46,8 +51,8 @@
             position: fixed; 
             top: 0; 
             left: 0; 
-            width: 100%; 
-            height: 100%;
+            width: 100vw; 
+            height: 100vh;
             background: linear-gradient(135deg, #f8f4ff 0%, #ecdcfb 50%, #f8f4ff 100%);
             z-index: -2;
         }
@@ -56,8 +61,8 @@
             position: fixed; 
             top: 0; 
             left: 0; 
-            width: 100%; 
-            height: 100%;
+            width: 100vw; 
+            height: 100vh;
             z-index: -1; 
             background: transparent;
         }
@@ -84,21 +89,22 @@
             to { transform: translateY(-100px); }
         }
 
-        /* --- ヘッダー（背景: illust_main.jpg） --- */
+        /* --- ヘッダー --- */
         header {
             position: relative;
             background-image: linear-gradient(rgba(155, 89, 182, 0.75), rgba(155, 89, 182, 0.75)), url('illust_main.jpg');
             background-size: cover;
             background-position: center;
-            padding: 40px 10px;
+            padding: 30px 15px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             color: var(--white);
             transition: all 0.3s ease;
+            width: 100%;
         }
 
         header.scrolled {
-            padding: 15px 10px;
+            padding: 15px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
@@ -107,7 +113,7 @@
             flex-direction: column; 
             align-items: center; 
             gap: 10px; 
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             animation: slideDownFade 0.8s ease-out;
         }
 
@@ -123,8 +129,8 @@
         }
 
         .site-icon { 
-            width: 90px; 
-            height: 90px; 
+            width: 70px; 
+            height: 70px; 
             border-radius: 50%; 
             object-fit: cover; 
             border: 3px solid var(--white); 
@@ -133,44 +139,52 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        .site-icon:hover {
+        .site-icon:active {
             transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
 
         .logo-text { 
-            font-size: 1.8rem; 
+            font-size: 1.4rem; 
             font-weight: bold; 
             color: var(--white); 
             text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
             animation: slideDownFade 0.8s ease-out 0.1s both;
+            word-break: break-word;
+            line-height: 1.3;
+        }
+
+        .header-contact {
+            font-size: 0.9rem;
+            margin: 10px 0;
         }
 
         .header-contact a { 
             color: var(--white); 
-            font-size: 1.8rem; 
+            font-size: 1.5rem; 
             font-weight: bold; 
             text-decoration: none; 
             text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
             transition: transform 0.2s ease;
+            display: inline-block;
         }
 
-        .header-contact a:hover {
-            transform: scale(1.05);
+        .header-contact a:active {
+            transform: scale(0.95);
         }
 
         /* ハンバーガーメニュー */
         .hamburger {
-            display: none;
+            display: flex;
             flex-direction: column;
             cursor: pointer;
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             z-index: 1001;
             background: none;
             border: none;
-            padding: 0;
+            padding: 10px;
+            margin: 0;
         }
 
         .hamburger span {
@@ -180,6 +194,7 @@
             margin: 5px 0;
             transition: all 0.3s ease;
             border-radius: 2px;
+            display: block;
         }
 
         .hamburger.active span:nth-child(1) {
@@ -195,13 +210,15 @@
         }
 
         nav { 
-            background-color: rgba(74, 35, 90, 0.65); 
-            margin-top: 15px; 
-            border-radius: 50px; 
-            padding: 2px; 
+            background-color: rgba(74, 35, 90, 0.95); 
+            margin-top: 10px; 
+            border-radius: 0;
+            padding: 0;
             backdrop-filter: blur(5px);
             transition: all 0.3s ease;
             animation: slideUpFade 0.8s ease-out 0.2s both;
+            position: static;
+            width: 100%;
         }
 
         @keyframes slideUpFade {
@@ -222,43 +239,64 @@
             display: flex; 
             justify-content: center; 
             flex-wrap: wrap;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        nav.mobile-open ul {
+            flex-direction: column;
+        }
+
+        nav ul li { 
+            width: 100%;
         }
 
         nav ul li a { 
             color: var(--white); 
             text-decoration: none; 
-            padding: 12px 18px; 
+            padding: 12px 15px; 
             display: block; 
             font-weight: bold; 
-            font-size: 1rem;
+            font-size: 0.95rem;
             position: relative;
             transition: all 0.3s ease;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul li:last-child a {
+            border-bottom: none;
         }
 
         nav ul li a::after {
             content: '';
             position: absolute;
-            bottom: 5px;
-            left: 50%;
+            bottom: 0;
+            left: 0;
             width: 0;
-            height: 2px;
+            height: 3px;
             background-color: var(--accent-pink);
             transition: all 0.3s ease;
-            transform: translateX(-50%);
         }
 
-        nav ul li a:hover::after {
-            width: 80%;
+        nav ul li a:active::after {
+            width: 100%;
         }
 
         /* --- コンテンツエリア --- */
+        main {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
         section {
-            background-color: rgba(255, 255, 255, 0.88);
-            margin: 30px auto; 
-            padding: 40px 25px;
-            width: 92%; 
-            max-width: 900px;
-            border-radius: 40px;
+            background-color: rgba(255, 255, 255, 0.92);
+            margin: 20px auto; 
+            padding: 25px 15px;
+            width: 95%; 
+            max-width: 95%;
+            border-radius: 25px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             backdrop-filter: blur(4px);
             opacity: 0;
@@ -276,23 +314,27 @@
             }
         }
 
-        section:nth-of-type(2) { animation-delay: 0.1s; }
-        section:nth-of-type(3) { animation-delay: 0.2s; }
-        section:nth-of-type(4) { animation-delay: 0.3s; }
-        section:nth-of-type(5) { animation-delay: 0.4s; }
+        section:nth-of-type(1) { animation-delay: 0.1s; }
+        section:nth-of-type(2) { animation-delay: 0.2s; }
+        section:nth-of-type(3) { animation-delay: 0.3s; }
+        section:nth-of-type(4) { animation-delay: 0.4s; }
+        section:nth-of-type(5) { animation-delay: 0.5s; }
 
-        /* メインビジュアル（背景: new_illust.jpg） */
+        /* メインビジュアル */
         .hero-section {
             position: relative;
-            min-height: 350px;
+            min-height: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            border-radius: 40px;
+            border-radius: 25px;
             background: none;
             margin-top: 0;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 95%;
         }
 
         .hero-bg-img {
@@ -322,22 +364,24 @@
 
         .hero-content h1 {
             color: var(--main-color); 
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             margin: 0; 
-            line-height: 1.5;
+            line-height: 1.4;
             font-weight: bold;
             text-shadow: 2px 2px 5px white, -2px -2px 5px white;
             animation: slideDownFade 0.8s ease-out;
+            word-break: break-word;
         }
 
         .section-title {
             text-align: center; 
             color: var(--main-color); 
-            font-size: 1.8rem;
-            margin-bottom: 30px; 
+            font-size: 1.5rem;
+            margin: 0 0 25px 0;
             border-bottom: 3px dotted var(--main-color);
-            padding-bottom: 15px;
+            padding-bottom: 12px;
             position: relative;
+            word-break: break-word;
         }
 
         .section-title::before {
@@ -354,15 +398,16 @@
         .service-list { 
             list-style: none; 
             padding: 0;
+            margin: 0;
         }
 
         .service-list li { 
             position: relative; 
-            padding-left: 35px; 
-            margin-bottom: 15px; 
-            font-size: 1.1rem;
+            padding: 12px 0 12px 30px; 
+            margin-bottom: 10px; 
+            font-size: 1rem;
             transition: all 0.3s ease;
-            padding: 12px 0 12px 35px;
+            word-break: break-word;
         }
 
         .service-list li::before { 
@@ -372,13 +417,13 @@
             transition: all 0.3s ease;
         }
 
-        .service-list li:hover {
+        .service-list li:active {
             transform: translateX(10px);
             background-color: var(--bg-purple);
-            padding-left: 45px;
+            padding-left: 40px;
         }
 
-        .service-list li:hover::before {
+        .service-list li:active::before {
             animation: twinkle 0.6s ease-in-out;
         }
 
@@ -387,17 +432,18 @@
             50% { opacity: 0.5; }
         }
 
-        /* 求人ボタンのスタイル */
+        /* 求人ボックス */
         .recruit-box {
             text-align: center;
-            padding: 30px;
+            padding: 20px;
             background: linear-gradient(135deg, #f8f4ff 0%, #ecdcfb 100%);
             border: 2px dashed var(--main-color);
             border-radius: 20px;
             transition: all 0.3s ease;
+            word-break: break-word;
         }
 
-        .recruit-box:hover {
+        .recruit-box:active {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(155, 89, 182, 0.2);
             border-color: var(--accent-pink);
@@ -408,10 +454,10 @@
             background: linear-gradient(135deg, var(--main-color) 0%, #6c3483 100%);
             color: white;
             text-decoration: none;
-            padding: 15px 30px;
+            padding: 14px 25px;
             border-radius: 50px;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1rem;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(155, 89, 182, 0.3);
             margin-top: 10px;
@@ -419,6 +465,8 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            -webkit-user-select: none;
+            user-select: none;
         }
 
         .recruit-btn::before {
@@ -432,43 +480,48 @@
             transition: all 0.5s ease;
         }
 
-        .recruit-btn:hover::before {
+        .recruit-btn:active::before {
             left: 100%;
         }
 
-        .recruit-btn:hover {
+        .recruit-btn:active {
             background: linear-gradient(135deg, var(--dark-purple) 0%, #2c1a47 100%);
-            transform: scale(1.05);
+            transform: scale(0.98);
             box-shadow: 0 8px 25px rgba(155, 89, 182, 0.5);
         }
 
+        /* テーブル */
         .info-table { 
             width: 100%; 
             border-collapse: separate; 
-            border-spacing: 0 10px;
+            border-spacing: 0 8px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .info-table tr {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
         }
 
         .info-table th {
             background: linear-gradient(135deg, var(--main-color) 0%, #6c3483 100%);
             color: white;
-            padding: 15px; 
-            border-radius: 15px 0 0 15px; 
-            width: 30%;
+            padding: 12px; 
+            border-radius: 15px 15px 0 0; 
             font-weight: bold;
             box-shadow: 0 4px 10px rgba(155, 89, 182, 0.2);
+            word-break: break-word;
         }
 
         .info-table td {
             background-color: white; 
-            padding: 15px;
-            border-radius: 0 15px 15px 0; 
+            padding: 12px;
+            border-radius: 0 0 15px 15px; 
             border: 1px solid #ddd;
             transition: all 0.3s ease;
-        }
-
-        .info-table tr:hover td {
-            background-color: var(--bg-purple);
-            box-shadow: 0 4px 12px rgba(155, 89, 182, 0.15);
+            word-break: break-word;
         }
 
         .info-table a {
@@ -490,15 +543,15 @@
             transition: width 0.3s ease;
         }
 
-        .info-table a:hover::after {
+        .info-table a:active::after {
             width: 100%;
         }
 
-        /* マップのスタイル */
+        /* マップ */
         .map-container {
-            margin-top: 20px;
+            margin-top: 15px;
             width: 100%;
-            height: 300px;
+            height: 250px;
             border-radius: 20px;
             overflow: hidden;
             border: 2px solid var(--main-color);
@@ -506,7 +559,7 @@
             transition: all 0.3s ease;
         }
 
-        .map-container:hover {
+        .map-container:active {
             box-shadow: 0 12px 30px rgba(155, 89, 182, 0.25);
             transform: translateY(-3px);
         }
@@ -517,19 +570,22 @@
             border: 0;
         }
 
+        /* ページトップボタン */
         #page-top { 
             position: fixed; 
-            right: 20px; 
+            right: 15px; 
             bottom: 20px; 
             z-index: 100;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
+            pointer-events: none;
         }
 
         #page-top.show {
             opacity: 1;
             visibility: visible;
+            pointer-events: auto;
         }
 
         #page-top a {
@@ -538,170 +594,206 @@
             align-items: center;
             background: linear-gradient(135deg, var(--main-color) 0%, var(--dark-purple) 100%); 
             color: white; 
-            width: 60px; 
-            height: 60px;
+            width: 55px; 
+            height: 55px;
             text-decoration: none; 
             border-radius: 50%; 
-            font-size: 0.8rem; 
+            font-size: 0.75rem; 
             text-align: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
             font-weight: bold;
+            line-height: 1.2;
         }
 
-        #page-top a:hover {
-            transform: scale(1.1);
+        #page-top a:active {
+            transform: scale(0.95);
             box-shadow: 0 8px 20px rgba(155, 89, 182, 0.5);
         }
 
-        /* お問い合わせボタン */
+        /* お問い合わせセクション */
         .contact-section {
             text-align: center;
-            padding: 40px 25px;
+            padding: 25px 15px;
             background: linear-gradient(135deg, var(--main-color) 0%, #6c3483 100%);
-            border-radius: 40px;
+            border-radius: 25px;
             color: white;
-            margin: 30px auto;
-            width: 92%;
-            max-width: 900px;
+            margin: 20px auto;
+            width: 95%;
+            word-break: break-word;
         }
 
         .contact-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            margin: 0 0 15px 0;
+        }
+
+        .contact-section p {
+            margin: 10px 0;
+            font-size: 0.95rem;
         }
 
         .contact-btn {
-            display: inline-block;
+            display: block;
             background-color: var(--accent-pink);
             color: white;
-            padding: 15px 40px;
+            padding: 12px 20px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: all 0.3s ease;
-            margin: 10px;
+            margin: 10px auto;
             border: none;
             cursor: pointer;
+            width: 90%;
+            max-width: 300px;
         }
 
-        .contact-btn:hover {
-            transform: scale(1.08);
+        .contact-btn:active {
+            transform: scale(0.98);
             box-shadow: 0 8px 20px rgba(233, 30, 99, 0.4);
         }
 
+        /* フッター */
         footer { 
             background: linear-gradient(135deg, var(--main-color) 0%, var(--dark-purple) 100%);
             color: white; 
             text-align: center; 
-            padding: 40px 10px; 
-            border-radius: 50px 50px 0 0;
+            padding: 30px 15px; 
+            border-radius: 0;
             box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            word-break: break-word;
         }
 
         footer p {
-            margin: 10px 0;
+            margin: 8px 0;
+            font-size: 0.95rem;
         }
 
-        /* ローディングアニメーション */
-        .loading-spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(155, 89, 182, 0.3);
-            border-radius: 50%;
-            border-top-color: var(--main-color);
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* レスポンシブ対応 */
+        /* タッチ対応 */
         @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
+            .site-icon { 
+                width: 60px; 
+                height: 60px;
+            }
+
+            .logo-text { 
+                font-size: 1.3rem;
             }
 
             nav {
                 position: fixed;
-                top: 200px;
+                top: 160px;
                 left: 0;
                 right: 0;
-                background-color: rgba(74, 35, 90, 0.95);
+                background-color: rgba(74, 35, 90, 0.98);
                 border-radius: 0;
-                padding: 20px 0;
+                padding: 0;
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 0.3s ease;
                 margin: 0;
                 z-index: 1000;
+                width: 100vw;
             }
 
             nav.mobile-open {
-                max-height: 300px;
+                max-height: 400px;
             }
 
             nav ul {
                 flex-direction: column;
-                align-items: center;
+                align-items: stretch;
+            }
+
+            nav ul li {
+                width: 100%;
             }
 
             nav ul li a {
-                padding: 15px 20px;
+                padding: 15px;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .logo-text { 
-                font-size: 1.5rem; 
+                text-align: left;
+                padding-left: 20px;
             }
 
-            .header-contact a { 
-                font-size: 1.5rem; 
+            section {
+                width: 90%;
+                padding: 20px 12px;
+                margin: 15px auto;
             }
 
-            nav ul li a { 
-                padding: 10px 10px; 
-                font-size: 0.85rem; 
-            }
-
-            .hero-content h1 { 
-                font-size: 1.8rem; 
-            }
-
-            .recruit-btn { 
-                font-size: 1rem; 
-                padding: 12px 20px; 
-            }
-
-            .info-table th, .info-table td { 
-                display: block; 
-                width: 100%; 
-                text-align: center; 
-                border-radius: 15px; 
-            }
-
-            .info-table th { 
-                margin-bottom: 2px; 
-                border-radius: 15px;
-            }
-
-            .info-table td { 
-                margin-bottom: 15px;
-                border-radius: 15px;
+            .hero-section {
+                width: 90%;
             }
 
             .contact-section {
-                width: 92%;
-                padding: 30px 20px;
+                width: 90%;
+                margin: 15px auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 20px 10px;
+            }
+
+            .site-icon { 
+                width: 50px; 
+                height: 50px;
+            }
+
+            .logo-text { 
+                font-size: 1.1rem;
+            }
+
+            .header-contact a { 
+                font-size: 1.3rem;
+            }
+
+            .hero-content h1 { 
+                font-size: 1.5rem;
             }
 
             .section-title {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
+            }
+
+            .service-list li { 
+                font-size: 0.95rem;
+                padding: 10px 0 10px 28px;
+            }
+
+            .recruit-btn { 
+                font-size: 0.95rem; 
+                padding: 12px 20px;
+                width: 100%;
+                max-width: none;
+            }
+
+            .contact-btn {
+                font-size: 0.95rem;
+                width: 100%;
+            }
+
+            .contact-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .contact-section p {
+                font-size: 0.9rem;
+            }
+
+            .map-container {
+                height: 200px;
+            }
+
+            #page-top a {
+                width: 50px;
+                height: 50px;
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -750,10 +842,10 @@
 
         <section id="about">
             <h2 class="section-title">当ステーションについて</h2>
-            <div style="text-align: left; background: #fff; padding: 25px; border-radius: 30px;">
+            <div style="text-align: left; background: #fff; padding: 20px; border-radius: 20px; word-break: break-word;">
                 <p>住み慣れた地域やご自宅で、みなさまが<strong>自分らしく</strong>安心して生活できるように共に考えていきたいと思っています。</p>
-                <p>みなさまがその人らしく充実かつ安心して過ごせるよう、個々のライフスタイルやニーズに真摯に向き合い, 温かいサポートを提供することをお約せします。</p>
-                <div style="background: #f8f4ff; border: 2px dashed var(--main-color); padding: 20px; border-radius: 20px; text-align: center; font-weight: bold; margin-top: 20px; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 20px rgba(155, 89, 182, 0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+                <p>みなさまがその人らしく充実かつ安心して過ごせるよう、個々のライフスタイルやニーズに真摯に向き合い, 温かいサポートを提供することをお約束します。</p>
+                <div style="background: #f8f4ff; border: 2px dashed var(--main-color); padding: 15px; border-radius: 15px; text-align: center; font-weight: bold; margin-top: 15px;">
                     🌟 24時間体制 🌟<br>
                     <small>契約者様に対しては, 24時間365日の緊急対応体制を整えております。</small>
                 </div>
@@ -796,7 +888,7 @@
                     <td>
                         〒862-0971<br>
                         熊本県熊本市中央区大江4丁目7-10-1<br>
-                        <strong>【オフィス】</strong><br>
+                        <strong style="display: block; margin-top: 8px;">【オフィス】</strong>
                         〒862-0971<br>
                         熊本県熊本市中央区大江4丁目8-22 グレイスコート六番館202
                         <div class="map-container">
@@ -820,7 +912,7 @@
             <div class="recruit-box">
                 <p>マワル訪問看護ステーションでは、<br>一緒に働く仲間を募集しています！</p>
                 <a href="https://share.google/lB8r0Eihsgh7D5dRX" target="_blank" class="recruit-btn">🌟 募集要項を見る 🌟</a>
-                <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">※外部サイト（求人ボックス）へ移動します</p>
+                <p style="margin: 12px 0 0 0; font-size: 0.85rem; color: #666;">※外部サイト（求人ボックス）へ移動します</p>
             </div>
         </section>
 
@@ -838,21 +930,17 @@
     </footer>
 
     <script>
-        // ==========================================
-        // ハンバーガーメニュー機能
-        // ==========================================
         document.addEventListener('DOMContentLoaded', function() {
             const hamburger = document.querySelector('.hamburger');
             const nav = document.querySelector('nav');
             const navLinks = document.querySelectorAll('nav a');
 
-            // ハンバーガーボタンのクリックイベント
+            // ハンバーガーメニュー
             hamburger.addEventListener('click', function() {
                 hamburger.classList.toggle('active');
                 nav.classList.toggle('mobile-open');
             });
 
-            // ナビゲーションリンククリック時にメニューを閉じる
             navLinks.forEach(link => {
                 link.addEventListener('click', function() {
                     hamburger.classList.remove('active');
@@ -860,14 +948,12 @@
                 });
             });
 
-            // ==========================================
             // スクロール時のヘッダー変化
-            // ==========================================
             window.addEventListener('scroll', function() {
                 const header = document.querySelector('header');
                 const pageTopBtn = document.getElementById('page-top');
 
-                if (window.scrollY > 100) {
+                if (window.scrollY > 50) {
                     header.classList.add('scrolled');
                     pageTopBtn.classList.add('show');
                 } else {
@@ -876,39 +962,17 @@
                 }
             });
 
-            // ==========================================
-            // Intersection Observer - セクションのフェードイン
-            // ==========================================
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
-                        observer.unobserve(entry.target);
-                    }
+            // ページトップボタン
+            const pageTopLink = document.querySelector('#page-top a');
+            pageTopLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
                 });
-            }, observerOptions);
-
-            document.querySelectorAll('section').forEach(section => {
-                observer.observe(section);
             });
 
-            // ==========================================
-            // サービスリストのアニメーション
-            // ==========================================
-            const serviceItems = document.querySelectorAll('.service-list li');
-            serviceItems.forEach((item, index) => {
-                item.style.opacity = '0';
-                item.style.animation = `fadeInUp 0.6s ease-out ${0.1 * index}s forwards`;
-            });
-
-            // ==========================================
-            // スムーズスクロール処理
-            // ==========================================
+            // スムーズスクロール
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
@@ -928,61 +992,18 @@
                 });
             });
 
-            // ==========================================
-            // ページトップボタン機能
-            // ==========================================
-            const pageTopLink = document.querySelector('#page-top a');
-            pageTopLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-
-            // ==========================================
-            // 電話番号のクリック追跡（GA対応）
-            // ==========================================
+            // イベント追跡
             document.querySelectorAll('a[href^="tel:"]').forEach(link => {
                 link.addEventListener('click', function() {
-                    console.log('電話リンククリック:', this.href);
-                    // Google Analyticsを使用している場合は以下をコメント解除
-                    // gtag('event', 'call', { phone_number: this.href });
+                    console.log('電話リンク:', this.href);
                 });
             });
 
-            // ==========================================
-            // メールリンククリック追跡
-            // ==========================================
             document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
                 link.addEventListener('click', function() {
-                    console.log('メールリンククリック:', this.href);
+                    console.log('メールリンク:', this.href);
                 });
             });
-
-            // ==========================================
-            // 外部リンク追跡
-            // ==========================================
-            document.querySelectorAll('a[target="_blank"]').forEach(link => {
-                link.addEventListener('click', function() {
-                    console.log('外部リンククリック:', this.href);
-                });
-            });
-        });
-
-        // ==========================================
-        // ページロード完了時のアニメーション
-        // ==========================================
-        window.addEventListener('load', function() {
-            console.log('ページロード完了');
-            document.body.style.opacity = '1';
-        });
-
-        // ==========================================
-        // エラーハンドリング
-        // ==========================================
-        window.addEventListener('error', function(event) {
-            console.error('エラーが発生しました:', event.error);
         });
     </script>
 
