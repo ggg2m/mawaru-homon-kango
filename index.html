@@ -95,7 +95,7 @@
             background-image: linear-gradient(rgba(155, 89, 182, 0.75), rgba(155, 89, 182, 0.75)), url('illust_main.jpg');
             background-size: cover;
             background-position: center;
-            padding: 30px 15px 0;  /* ★ 下パディングを0に：navが直接続く */
+            padding: 30px 15px 0;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             color: var(--white);
@@ -110,13 +110,37 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
-        .header-logo-area { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            gap: 10px; 
+        /* ★ ロゴエリア：グリッドで「左ダミー / 中央コンテンツ / 右ボタン」の3列構成
+              → ボタン幅と同じダミーを左に置くことで、コンテンツが数学的に中央になる */
+        .header-logo-area {
+            display: grid;
+            grid-template-columns: 50px 1fr 50px; /* 左ダミー | 中央 | ハンバーガー幅と同じ右余白 */
+            align-items: center;
+            gap: 0;
             margin-bottom: 15px;
             animation: slideDownFade 0.8s ease-out;
+        }
+
+        /* グリッド中央列に実コンテンツをまとめるラッパー */
+        .header-logo-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            grid-column: 2;
+        }
+
+        /* PC（ハンバーガー非表示）のときはグリッド不要なので通常のflex表示に戻す */
+        @media (min-width: 769px) {
+            .header-logo-area {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .header-logo-inner {
+                display: contents; /* flexの直接の子として振る舞う */
+            }
         }
 
         @keyframes slideDownFade {
@@ -269,11 +293,6 @@
             /* ハンバーガーボタンを表示 */
             .hamburger {
                 display: flex;
-            }
-
-            /* ロゴエリアの右に余白（ボタンと被らないよう） */
-            .header-logo-area {
-                padding-right: 50px;
             }
 
             .site-icon {
@@ -787,8 +806,10 @@
         </button>
         
         <div class="header-logo-area">
-            <img src="icon.jpg" alt="マワルアイコン" class="site-icon">
-            <span class="logo-text">マワル訪問看護ステーション</span>
+            <div class="header-logo-inner">
+                <img src="icon.jpg" alt="マワルアイコン" class="site-icon">
+                <span class="logo-text">マワル訪問看護ステーション</span>
+            </div>
         </div>
         <div class="header-contact">
             <small>✨ お気軽にお問い合わせください ✨</small><br>
@@ -918,13 +939,31 @@
                 hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
             });
 
-            // ★ ナビリンクをタップしたらメニューを閉じる
+            // ナビリンクをタップ：メニューを閉じてからスクロール
             navLinks.forEach(function (link) {
-                link.addEventListener('click', function () {
+                link.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+
+                    // 外部リンク（#なし）はそのまま通す
+                    if (!href || !href.startsWith('#') || href === '#') return;
+
+                    e.preventDefault();
+
+                    const target = document.querySelector(href);
+
+                    // ① メニューを閉じる
                     nav.classList.remove('mobile-open');
                     hamburger.classList.remove('active');
                     hamburger.setAttribute('aria-expanded', 'false');
                     hamburger.setAttribute('aria-label', 'メニューを開く');
+
+                    if (!target) return;
+
+                    // ② max-heightアニメーション(350ms)が完了してからスクロール
+                    //    レイアウトが確定した後に位置を計算するため
+                    setTimeout(function () {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 370);
                 });
             });
 
@@ -960,8 +999,11 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // スムーズスクロール
+            // スムーズスクロール（navリンク以外：ページ内#リンク全般）
             document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+                // navリンクは上のnavLinks処理で対応済みのためスキップ
+                if (anchor.closest('nav')) return;
+
                 anchor.addEventListener('click', function (e) {
                     const href = this.getAttribute('href');
                     if (href === '#' || href === '#top') return;
