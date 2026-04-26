@@ -2,15 +2,15 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="ojUXH0BgbbCu3_rv-6rs9KvocQlcxydKa8PGxQA-CAw" />
     
     <title>マワル訪問看護ステーション | 熊本市中央区大江の自分らしい訪問看護</title>
-    <meta name="description" content="熊本市中央区大江にあるマワル訪問看護ステーション（株式会社クロミキ）です。24時間365日対応（要相談）で, 不登校支援や多胎児ケアなど, 自分らしく安心してご自宅で過ごせるよう専門的な看護を提供します。">
+    <meta name="description" content="熊本市中央区大江にあるマワル訪問看護ステーション（株式会社クロミキ）です。24時間365日対応（要相談）で、不登校支援や多胎児ケアなど、自分らしく安心してご自宅で過ごせるよう専門的な看護を提供します。">
     <meta name="keywords" content="訪問看護, 熊本市, 中央区, 大江, マワル, 株式会社クロミキ, 不登校支援, 多胎児ケア">
 
     <meta property="og:title" content="マワル訪問看護ステーション">
-    <meta property="og:description" content="熊本市中央区大江で, 自分らしく住み慣れた場所での生活をサポートします。">
+    <meta property="og:description" content="熊本市中央区大江で、自分らしく住み慣れた場所での生活をサポートします。">
     <meta property="og:image" content="https://ggg2m.github.io/mawaru-homon-kango/icon.jpg">
     <meta property="og:url" content="https://ggg2m.github.io/mawaru-homon-kango/">
     <meta property="og:type" content="website">
@@ -22,68 +22,41 @@
             --bg-purple: #f8f4ff;
             --dark-purple: #4a235a;
             --white: #ffffff;
-            --accent-pink: #e91e63;
-            --light-gray: #f3e5f5;
         }
 
         * {
             font-family: "UD デジタル 教科書体 NK-R", "UD Digi Kyokasho N-R", "HG丸ｺﾞｼｯｸM-PRO", "Hiragino Maru Gothic ProN", "Yu Gothic UI", "Meiryo UI", sans-serif;
-            /* scroll-behavior はJSで制御するためCSSでは指定しない */
+            scroll-behavior: smooth;
             box-sizing: border-box;
         }
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            margin: 0; 
-            padding: 0;
-            overflow-x: hidden;
-        }
-
         body {
+            margin: 0; padding: 0;
             color: var(--dark-purple);
             line-height: 1.6;
-            background-color: var(--light-gray);
+            background-color: #f3e5f5;
+            overflow-x: hidden;
         }
 
         /* --- 背景演出 --- */
         .sparkle-bg {
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100vw; 
-            height: 100vh;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(135deg, #f8f4ff 0%, #ecdcfb 50%, #f8f4ff 100%);
             z-index: -2;
         }
-
         .stars {
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100vw; 
-            height: 100vh;
-            z-index: -1; 
-            background: transparent;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; background: transparent;
         }
-
         .stars::after {
-            content: ""; 
-            position: absolute; 
-            top: -50%; 
-            left: -50%; 
-            width: 200%; 
-            height: 200%;
+            content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
             background-image: 
                 radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
                 radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
                 radial-gradient(3px 3px at 50px 160px, #fff, rgba(0,0,0,0));
-            background-repeat: repeat; 
-            background-size: 200px 200px;
-            animation: move-stars 20s linear infinite; 
-            opacity: 0.5;
+            background-repeat: repeat; background-size: 200px 200px;
+            animation: move-stars 20s linear infinite; opacity: 0.5;
         }
-
         @keyframes move-stars {
             from { transform: translateY(0); }
             to { transform: translateY(-100px); }
@@ -95,696 +68,135 @@
             background-image: linear-gradient(rgba(155, 89, 182, 0.75), rgba(155, 89, 182, 0.75)), url('illust_main.jpg');
             background-size: cover;
             background-position: center;
-            padding: 30px 15px 0;
+            padding: 40px 10px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             color: var(--white);
-            transition: all 0.3s ease;
-            width: 100%;
         }
+        .header-logo-area { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 20px; }
+        .site-icon { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid var(--white); background: white; }
+        .logo-text { font-size: 1.8rem; font-weight: bold; color: var(--white); text-shadow: 2px 2px 5px rgba(0,0,0,0.4); }
+        .header-contact a { color: var(--white); font-size: 1.8rem; font-weight: bold; text-decoration: none; text-shadow: 2px 2px 5px rgba(0,0,0,0.4); }
 
-        header.scrolled {
-            padding-top: 15px;
-            padding-left: 15px;
-            padding-right: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-
-        /* ★ ロゴエリア：グリッドで「左ダミー / 中央コンテンツ / 右ボタン」の3列構成
-              → ボタン幅と同じダミーを左に置くことで、コンテンツが数学的に中央になる */
-        .header-logo-area {
-            display: grid;
-            grid-template-columns: 50px 1fr 50px; /* 左ダミー | 中央 | ハンバーガー幅と同じ右余白 */
-            align-items: center;
-            gap: 0;
-            margin-bottom: 15px;
-            animation: slideDownFade 0.8s ease-out;
-        }
-
-        /* グリッド中央列に実コンテンツをまとめるラッパー */
-        .header-logo-inner {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            grid-column: 2;
-        }
-
-        /* PC（ハンバーガー非表示）のときはグリッド不要なので通常のflex表示に戻す */
-        @media (min-width: 769px) {
-            .header-logo-area {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-            .header-logo-inner {
-                display: contents; /* flexの直接の子として振る舞う */
-            }
-        }
-
-        @keyframes slideDownFade {
-            from { opacity: 0; transform: translateY(-20px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        .site-icon { 
-            width: 70px; 
-            height: 70px; 
-            border-radius: 50%; 
-            object-fit: cover; 
-            border: 3px solid var(--white); 
-            background: white;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .site-icon:active {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .logo-text { 
-            font-size: 1.4rem; 
-            font-weight: bold; 
-            color: var(--white); 
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
-            animation: slideDownFade 0.8s ease-out 0.1s both;
-            word-break: break-word;
-            line-height: 1.3;
-        }
-
-        .header-contact {
-            font-size: 0.9rem;
-            margin: 10px 0;
-        }
-
-        .header-contact a { 
-            color: var(--white); 
-            font-size: 1.5rem; 
-            font-weight: bold; 
-            text-decoration: none; 
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
-            transition: transform 0.2s ease;
-            display: inline-block;
-        }
-
-        .header-contact a:active {
-            transform: scale(0.95);
-        }
-
-        /* ★★★ ハンバーガーボタン ★★★
-           PCでは非表示、スマホのみ表示 */
-        .hamburger {
-            display: none; /* PC: 常に非表示 */
-            flex-direction: column;
-            cursor: pointer;
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            z-index: 1001;
-            background: rgba(0,0,0,0.2);
-            border: 2px solid rgba(255,255,255,0.5);
-            border-radius: 8px;
-            padding: 8px;
-        }
-
-        .hamburger span {
-            width: 22px;
-            height: 2px;
-            background-color: var(--white);
-            margin: 3px 0;
-            transition: all 0.3s ease;
-            border-radius: 2px;
-            display: block;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-            transform: scaleX(0);
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        /* ★★★ ナビゲーション ★★★
-           PC: 通常のインライン表示
-           スマホ: アコーディオン（heightアニメーション） */
-        nav {
-            background-color: rgba(74, 35, 90, 0.95);
-            margin-top: 10px;
-            backdrop-filter: blur(5px);
-            animation: slideUpFade 0.8s ease-out 0.2s both;
-            /* PCではwidth: 100%でheaderに収まる */
-            width: 100%;
-            overflow: hidden;
-        }
-
-        @keyframes slideUpFade {
-            from { opacity: 0; transform: translateY(20px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            padding: 12px 18px;
-            display: block;
-            font-weight: bold;
-            font-size: 0.95rem;
-            position: relative;
-            transition: background-color 0.2s ease;
-            text-align: center;
-        }
-
-        nav ul li a:hover {
-            background-color: rgba(255,255,255,0.15);
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background-color: var(--accent-pink);
-            transition: width 0.3s ease;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        /* ===== スマホ専用スタイル ===== */
-        @media (max-width: 768px) {
-
-            /* ハンバーガーボタンを表示 */
-            .hamburger {
-                display: flex;
-            }
-
-            .site-icon {
-                width: 60px;
-                height: 60px;
-            }
-
-            .logo-text {
-                font-size: 1.2rem;
-            }
-
-            /* ナビゲーション: 初期状態は高さ0で非表示 */
-            nav {
-                margin-top: 0;
-                /* max-heightアニメーションで滑らかに開閉 */
-                max-height: 0;
-                transition: max-height 0.35s ease;
-                /* ヘッダー下部の角丸 */
-                border-radius: 0;
-            }
-
-            /* 開いた状態 */
-            nav.mobile-open {
-                max-height: 400px;
-            }
-
-            /* スマホではリストを縦並びに */
-            nav ul {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            nav ul li {
-                width: 100%;
-            }
-
-            nav ul li a {
-                padding: 15px 20px;
-                text-align: left;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-                font-size: 1rem;
-            }
-
-            nav ul li:last-child a {
-                border-bottom: none;
-            }
-
-            section {
-                width: 92%;
-                padding: 20px 14px;
-                margin: 15px auto;
-            }
-
-            .hero-section {
-                width: 92%;
-            }
-
-            .contact-section {
-                width: 92%;
-                margin: 15px auto;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding-top: 20px;
-                padding-left: 10px;
-                padding-right: 10px;
-                padding-bottom: 0;
-            }
-
-            .site-icon {
-                width: 50px;
-                height: 50px;
-            }
-
-            .logo-text {
-                font-size: 1.05rem;
-            }
-
-            .header-contact a {
-                font-size: 1.3rem;
-            }
-
-            .hero-content h1 {
-                font-size: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.3rem;
-            }
-
-            .service-list li {
-                font-size: 0.95rem;
-                padding: 10px 0 10px 28px;
-            }
-
-            .recruit-btn {
-                font-size: 0.95rem;
-                padding: 12px 20px;
-                width: 100%;
-                max-width: none;
-            }
-
-            .contact-btn {
-                font-size: 0.95rem;
-                width: 100%;
-            }
-
-            .contact-section h2 {
-                font-size: 1.3rem;
-            }
-
-            .contact-section p {
-                font-size: 0.9rem;
-            }
-
-            .map-container {
-                height: 200px;
-            }
-
-            #page-top a {
-                width: 50px;
-                height: 50px;
-                font-size: 0.7rem;
-            }
-        }
+        nav { background-color: rgba(74, 35, 90, 0.65); margin-top: 15px; border-radius: 50px; padding: 2px; backdrop-filter: blur(5px); }
+        nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; flex-wrap: wrap; }
+        nav ul li a { color: var(--white); text-decoration: none; padding: 12px 18px; display: block; font-weight: bold; font-size: 1rem; }
 
         /* --- コンテンツエリア --- */
-        main {
-            width: 100%;
-            padding: 0;
-            margin: 0;
-        }
-
         section {
-            background-color: rgba(255, 255, 255, 0.92);
-            margin: 20px auto; 
-            padding: 25px 15px;
-            width: 95%; 
-            max-width: 95%;
-            border-radius: 25px;
+            background-color: rgba(255, 255, 255, 0.88);
+            margin: 30px auto; padding: 40px 25px;
+            width: 92%; max-width: 900px;
+            border-radius: 40px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             backdrop-filter: blur(4px);
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        section:nth-of-type(1) { animation-delay: 0.1s; }
-        section:nth-of-type(2) { animation-delay: 0.2s; }
-        section:nth-of-type(3) { animation-delay: 0.3s; }
-        section:nth-of-type(4) { animation-delay: 0.4s; }
-        section:nth-of-type(5) { animation-delay: 0.5s; }
-
-        /* メインビジュアル */
         .hero-section {
             position: relative;
-            min-height: 250px;
+            min-height: 350px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            border-radius: 25px;
-            background: none;
-            margin-top: 0;
-            margin-bottom: 20px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 95%;
+            border-radius: 40px;
+            background: none; 
         }
-
         .hero-bg-img {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background-image: url('new_illust.jpg');
             background-size: cover;
             background-position: center;
-            opacity: 0.35;
+            opacity: 0.35; 
             z-index: 1;
-            animation: zoomIn 8s ease-in-out infinite;
         }
-
-        @keyframes zoomIn {
-            0%, 100% { transform: scale(1); }
-            50%       { transform: scale(1.05); }
-        }
-
         .hero-content {
             position: relative;
             z-index: 2;
             text-align: center;
         }
-
         .hero-content h1 {
-            color: var(--main-color);
-            font-size: 1.8rem;
-            margin: 0;
-            line-height: 1.4;
+            color: var(--main-color); font-size: 2.5rem;
+            margin: 0; line-height: 1.5;
             font-weight: bold;
             text-shadow: 2px 2px 5px white, -2px -2px 5px white;
-            animation: slideDownFade 0.8s ease-out;
-            word-break: break-word;
         }
 
         .section-title {
-            text-align: center;
-            color: var(--main-color);
-            font-size: 1.5rem;
-            margin: 0 0 25px 0;
-            border-bottom: 3px dotted var(--main-color);
-            padding-bottom: 12px;
-            position: relative;
-            word-break: break-word;
+            text-align: center; color: var(--main-color); font-size: 1.8rem;
+            margin-bottom: 30px; border-bottom: 3px dotted var(--main-color);
         }
 
-        .section-title::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, var(--main-color), transparent);
-            transform: translateX(-50%);
-        }
-
-        .service-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .service-list li {
-            position: relative;
-            padding: 12px 0 12px 30px;
-            margin-bottom: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            word-break: break-word;
-        }
-
-        .service-list li::before {
-            content: "✨";
-            position: absolute;
-            left: 0;
-            transition: all 0.3s ease;
-        }
-
-        .service-list li:active {
-            transform: translateX(10px);
-            background-color: var(--bg-purple);
-            padding-left: 40px;
-        }
+        .service-list { list-style: none; padding: 0; }
+        .service-list li { position: relative; padding-left: 35px; margin-bottom: 15px; font-size: 1.1rem; }
+        .service-list li::before { content: "✨"; position: absolute; left: 0; }
 
         /* 求人ボックス */
         .recruit-box {
             text-align: center;
             padding: 20px;
-            background: linear-gradient(135deg, #f8f4ff 0%, #ecdcfb 100%);
+            background: #f8f4ff;
             border: 2px dashed var(--main-color);
             border-radius: 20px;
-            transition: all 0.3s ease;
-            word-break: break-word;
         }
-
-        .recruit-box:active {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(155, 89, 182, 0.2);
-            border-color: var(--accent-pink);
-        }
-
         .recruit-btn {
             display: inline-block;
-            background: linear-gradient(135deg, var(--main-color) 0%, #6c3483 100%);
+            background-color: var(--main-color);
             color: white;
             text-decoration: none;
-            padding: 14px 25px;
+            padding: 15px 30px;
             border-radius: 50px;
             font-weight: bold;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            transition: transform 0.3s, background-color 0.3s;
             box-shadow: 0 5px 15px rgba(155, 89, 182, 0.3);
             margin-top: 10px;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            -webkit-user-select: none;
-            user-select: none;
+        }
+        .recruit-btn:hover {
+            background-color: var(--dark-purple);
+            transform: scale(1.05);
         }
 
-        .recruit-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: all 0.5s ease;
-        }
-
-        .recruit-btn:active::before { left: 100%; }
-
-        .recruit-btn:active {
-            background: linear-gradient(135deg, var(--dark-purple) 0%, #2c1a47 100%);
-            transform: scale(0.98);
-            box-shadow: 0 8px 25px rgba(155, 89, 182, 0.5);
-        }
-
-        /* テーブル */
-        .info-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0 8px;
-            margin: 0;
-            padding: 0;
-        }
-
-        .info-table tr {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 10px;
-        }
-
+        .info-table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
         .info-table th {
-            background: linear-gradient(135deg, var(--main-color) 0%, #6c3483 100%);
-            color: white;
-            padding: 12px;
-            border-radius: 15px 15px 0 0;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(155, 89, 182, 0.2);
-            word-break: break-word;
+            background-color: var(--main-color); color: white;
+            padding: 15px; border-radius: 15px 0 0 15px; width: 30%;
         }
-
         .info-table td {
-            background-color: white;
-            padding: 12px;
-            border-radius: 0 0 15px 15px;
-            border: 1px solid #ddd;
-            transition: all 0.3s ease;
-            word-break: break-word;
+            background-color: white; padding: 15px;
+            border-radius: 0 15px 15px 0; border: 1px solid #ddd;
         }
 
-        .info-table a {
-            color: var(--main-color);
-            font-weight: bold;
-            text-decoration: none;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .info-table a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-pink);
-            transition: width 0.3s ease;
-        }
-
-        .info-table a:active::after { width: 100%; }
-
-        /* マップ */
         .map-container {
-            margin-top: 15px;
+            margin-top: 20px;
             width: 100%;
-            height: 250px;
+            height: 300px;
             border-radius: 20px;
             overflow: hidden;
             border: 2px solid var(--main-color);
-            box-shadow: 0 8px 20px rgba(155, 89, 182, 0.15);
-            transition: all 0.3s ease;
         }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
 
-        .map-container:active {
-            box-shadow: 0 12px 30px rgba(155, 89, 182, 0.25);
-            transform: translateY(-3px);
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* ページトップボタン */
-        #page-top {
-            position: fixed;
-            right: 15px;
-            bottom: 20px;
-            z-index: 100;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            pointer-events: none;
-        }
-
-        #page-top.show {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-        }
-
+        #page-top { position: fixed; right: 20px; bottom: 20px; z-index: 100; }
         #page-top a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, var(--main-color) 0%, var(--dark-purple) 100%);
-            color: white;
-            width: 55px;
-            height: 55px;
-            text-decoration: none;
-            border-radius: 50%;
-            font-size: 0.75rem;
-            text-align: center;
+            display: flex; justify-content: center; align-items: center;
+            background: var(--main-color); color: white; width: 60px; height: 60px;
+            text-decoration: none; border-radius: 50%; font-size: 0.8rem; text-align: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            font-weight: bold;
-            line-height: 1.2;
         }
 
-        #page-top a:active {
-            transform: scale(0.95);
-            box-shadow: 0 8px 20px rgba(155, 89, 182, 0.5);
-        }
+        footer { background-color: var(--main-color); color: white; text-align: center; padding: 40px 10px; border-radius: 50px 50px 0 0; }
 
-        /* お問い合わせセクション */
-        .contact-section {
-            text-align: center;
-            padding: 25px 15px;
-            background: linear-gradient(135deg, var(--main-color) 0%, #6c3483 100%);
-            border-radius: 25px;
-            color: white;
-            margin: 20px auto;
-            width: 95%;
-            word-break: break-word;
-        }
-
-        .contact-section h2 {
-            font-size: 1.5rem;
-            margin: 0 0 15px 0;
-        }
-
-        .contact-section p {
-            margin: 10px 0;
-            font-size: 0.95rem;
-        }
-
-        .contact-btn {
-            display: block;
-            background-color: var(--accent-pink);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            margin: 10px auto;
-            border: none;
-            cursor: pointer;
-            width: 90%;
-            max-width: 300px;
-        }
-
-        .contact-btn:active {
-            transform: scale(0.98);
-            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.4);
-        }
-
-        /* フッター */
-        footer {
-            background: linear-gradient(135deg, var(--main-color) 0%, var(--dark-purple) 100%);
-            color: white;
-            text-align: center;
-            padding: 30px 15px;
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
-            width: 100%;
-            word-break: break-word;
-        }
-
-        footer p {
-            margin: 8px 0;
-            font-size: 0.95rem;
+        @media (max-width: 600px) {
+            .logo-text { font-size: 1.5rem; }
+            .header-contact a { font-size: 1.5rem; }
+            nav ul li a { padding: 10px 10px; font-size: 0.85rem; }
+            .hero-content h1 { font-size: 1.8rem; }
+            .recruit-btn { font-size: 1rem; padding: 12px 20px; }
+            .info-table th, .info-table td { display: block; width: 100%; text-align: center; border-radius: 15px; }
+            .info-table th { margin-bottom: 2px; }
+            .info-table td { margin-bottom: 15px; }
         }
     </style>
 </head>
@@ -794,30 +206,19 @@
     <div class="stars"></div>
 
     <div id="page-top">
-        <a href="#top">TOPへ<br>戻る</a>
+        <a href="#">TOPへ<br>戻る</a>
     </div>
 
-    <header id="top">
-        <!-- ★ スマホのみ表示されるハンバーガーボタン -->
-        <button class="hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="main-nav">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        
+    <header>
         <div class="header-logo-area">
-            <div class="header-logo-inner">
-                <img src="icon.jpg" alt="マワルアイコン" class="site-icon">
-                <span class="logo-text">マワル訪問看護ステーション</span>
-            </div>
+            <img src="icon.jpg" alt="マワルアイコン" class="site-icon">
+            <span class="logo-text">マワル訪問看護ステーション</span>
         </div>
         <div class="header-contact">
             <small>✨ お気軽にお問い合わせください ✨</small><br>
             <a href="tel:0962021965">📞 096-202-1965</a>
         </div>
-
-        <!-- ★ navはヘッダー内に収め、fixed配置を廃止 -->
-        <nav id="main-nav" aria-label="メインナビゲーション">
+        <nav>
             <ul>
                 <li><a href="#about">ステーションについて</a></li>
                 <li><a href="#service">サービス内容</a></li>
@@ -837,12 +238,12 @@
 
         <section id="about">
             <h2 class="section-title">当ステーションについて</h2>
-            <div style="text-align: left; background: #fff; padding: 20px; border-radius: 20px; word-break: break-word;">
+            <div style="text-align: left; background: #fff; padding: 25px; border-radius: 30px;">
                 <p>住み慣れた地域やご自宅で、みなさまが<strong>自分らしく</strong>安心して生活できるように共に考えていきたいと思っています。</p>
-                <p>みなさまがその人らしく充実かつ安心して過ごせるよう、個々のライフスタイルやニーズに真摯に向き合い, 温かいサポートを提供することをお約束します。</p>
-                <div style="background: #f8f4ff; border: 2px dashed var(--main-color); padding: 15px; border-radius: 15px; text-align: center; font-weight: bold; margin-top: 15px;">
+                <p>みなさまがその人らしく充実かつ安心して過ごせるよう、個々のライフスタイルやニーズに真摯に向き合い、温かいサポートを提供することをお約束します。</p>
+                <div style="background: #f8f4ff; border: 2px dashed var(--main-color); padding: 20px; border-radius: 20px; text-align: center; font-weight: bold; margin-top: 20px;">
                     🌟 24時間体制 🌟<br>
-                    <small>契約者様に対しては, 24時間365日の緊急対応体制を整えております。</small>
+                    <small>契約者様に対しては、24時間365日の緊急対応体制を整えております。</small>
                 </div>
             </div>
         </section>
@@ -855,50 +256,29 @@
                 <li>リハビリテーション、認知症ケア</li>
                 <li>服薬管理、終末期ケア、ご家族への介護指導</li>
                 <li>精神科訪問看護、不登校支援</li>
-                <li>多胎経産婦のレスパイトケア、多胎児の発育支援、ケア</li>
+                <li>多胎経産婦のレスパイトケア、多胎児の発育支援・ケア</li>
             </ul>
         </section>
 
         <section id="access">
             <h2 class="section-title">事業所・連絡先情報</h2>
             <table class="info-table">
-                <tr>
-                    <th>運営法人</th>
-                    <td>株式会社クロミキ</td>
-                </tr>
-                <tr>
-                    <th>事業所名</th>
-                    <td>マワル訪問看護ステーション</td>
-                </tr>
-                <tr>
-                    <th>営業時間</th>
-                    <td>平日 8:30 ～ 17:30<br><small>※要相談にて24時間365日対応</small></td>
-                </tr>
-                <tr>
-                    <th>定休日</th>
-                    <td>土曜日・日曜日・祝日<br><small>※要相談にて24時間365日対応</small></td>
-                </tr>
-                <tr>
-                    <th>所在地</th>
-                    <td>
-                        〒862-0971<br>
-                        熊本県熊本市中央区大江4丁目7-10-1<br>
-                        <strong style="display: block; margin-top: 8px;">【オフィス】</strong>
+                <tr><th>運営法人</th><td>株式会社クロミキ</td></tr>
+                <tr><th>事業所名</th><td>マワル訪問看護ステーション</td></tr>
+                <tr><th>営業時間</th><td>平日 8:30 ～ 17:30<br><small>※要相談にて24時間365日対応</small></td></tr>
+                <tr><th>定休日</th><td>土曜日・日曜日・祝日<br><small>※要相談にて24時間365日対応</small></td></tr>
+                <tr><th>所在地</th>
+                    <td>〒862-0971<br>熊本県熊本市中央区大江4丁目7-10-1<br>
+                        <strong>【オフィス】</strong><br>
                         〒862-0971<br>
                         熊本県熊本市中央区大江4丁目8-22 グレイスコート六番館202
                         <div class="map-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.1678143210355!2d130.72402107571343!3d32.79840257365287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3540f40df83796eb%3A0xe549925697d8389b!2z44CSODYyLTA5NzEg54aK5pys55yM54aK5pys5biC5Lit5aSu5Yy65aSn5rGf77yU5LiB55uu77yY4oiS77yS77yS!5e0!3m2!1sja!2sjp!4v1715412345678!5m2!1sja!2sjp" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.123456789!2d130.722444!3d32.798123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3540f3f3f3f3f3f3%3A0x3f3f3f3f3f3f3f3f!2z54aK5pys55yM54aK5pys5biC5Lit5aSu5Yy65aSn5rGfN丁目7-10-1!5e0!3m2!1sja!2sjp!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <th>電話番号</th>
-                    <td><a href="tel:0962021965">096-202-1965</a></td>
-                </tr>
-                <tr>
-                    <th>メール</th>
-                    <td><a href="mailto:kuromiki0322@yahoo.co.jp">kuromiki0322@yahoo.co.jp</a></td>
-                </tr>
+                <tr><th>電話番号</th><td>096-202-1965</td></tr>
+                <tr><th>メール</th><td><a href="mailto:kuromiki0322@yahoo.co.jp" style="color:var(--main-color); font-weight: bold;">kuromiki0322@yahoo.co.jp</a></td></tr>
             </table>
         </section>
 
@@ -907,145 +287,14 @@
             <div class="recruit-box">
                 <p>マワル訪問看護ステーションでは、<br>一緒に働く仲間を募集しています！</p>
                 <a href="https://share.google/lB8r0Eihsgh7D5dRX" target="_blank" class="recruit-btn">🌟 募集要項を見る 🌟</a>
-                <p style="margin: 12px 0 0 0; font-size: 0.85rem; color: #666;">※外部サイト（求人ボックス）へ移動します</p>
+                <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">※外部サイト（求人ボックス）へ移動します</p>
             </div>
         </section>
-
-        <div class="contact-section">
-            <h2>お気軽にお問い合わせください</h2>
-            <p>ご質問やご相談がございましたら、いつでもお気軽にお問い合わせください。</p>
-            <a href="tel:0962021965" class="contact-btn">📞 電話で相談する</a>
-            <a href="mailto:kuromiki0322@yahoo.co.jp" class="contact-btn">📧 メールで相談する</a>
-        </div>
     </main>
 
     <footer>
         <p>© 2023-2025 マワル訪問看護ステーション</p>
-        <p style="font-size: 0.85rem;">熊本県熊本市中央区大江 | 株式会社クロミキ</p>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const hamburger = document.querySelector('.hamburger');
-            const nav = document.querySelector('nav');
-            const navLinks = document.querySelectorAll('nav a');
-
-            // ★ ハンバーガーボタン: トグル開閉
-            hamburger.addEventListener('click', function () {
-                const isOpen = nav.classList.toggle('mobile-open');
-                hamburger.classList.toggle('active', isOpen);
-                // アクセシビリティ属性を更新
-                hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
-            });
-
-            // スムーズスクロールのユーティリティ
-            // scrollIntoView はページ末尾・iframe含みセクションで止まる問題があるため
-            // window.scrollTo で絶対座標を直接指定する方式に統一
-            function smoothScrollTo(targetEl) {
-                // ヘッダー高さ分オフセット：headerは可変高のため毎回取得する
-                var headerHeight = document.querySelector('header').offsetHeight;
-                var top = targetEl.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
-                window.scrollTo({ top: top, behavior: 'smooth' });
-            }
-
-            // ナビリンクをタップ：メニューを閉じてからスクロール
-            navLinks.forEach(function (link) {
-                link.addEventListener('click', function (e) {
-                    const href = this.getAttribute('href');
-
-                    // 外部リンク（#なし）はそのまま通す
-                    if (!href || !href.startsWith('#') || href === '#') return;
-
-                    e.preventDefault();
-
-                    const target = document.querySelector(href);
-                    if (!target) return;
-
-                    // メニューが開いているかどうかで分岐
-                    if (nav.classList.contains('mobile-open')) {
-                        // ① メニューを閉じる
-                        nav.classList.remove('mobile-open');
-                        hamburger.classList.remove('active');
-                        hamburger.setAttribute('aria-expanded', 'false');
-                        hamburger.setAttribute('aria-label', 'メニューを開く');
-
-                        // ② transitionendでアニメーション完了を正確に検知してからスクロール
-                        //    setTimeoutの固定値と異なり端末差異に対応できる
-                        function onTransitionEnd() {
-                            nav.removeEventListener('transitionend', onTransitionEnd);
-                            smoothScrollTo(target);
-                        }
-                        nav.addEventListener('transitionend', onTransitionEnd);
-                    } else {
-                        // メニューが閉じていればそのままスクロール
-                        smoothScrollTo(target);
-                    }
-                });
-            });
-
-            // ★ メニュー外をタップしたら閉じる
-            document.addEventListener('click', function (e) {
-                if (nav.classList.contains('mobile-open') &&
-                    !nav.contains(e.target) &&
-                    !hamburger.contains(e.target)) {
-                    nav.classList.remove('mobile-open');
-                    hamburger.classList.remove('active');
-                    hamburger.setAttribute('aria-expanded', 'false');
-                    hamburger.setAttribute('aria-label', 'メニューを開く');
-                }
-            });
-
-            // スクロール時ヘッダー変化 & TOPボタン表示
-            window.addEventListener('scroll', function () {
-                const header = document.querySelector('header');
-                const pageTopBtn = document.getElementById('page-top');
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                    pageTopBtn.classList.add('show');
-                } else {
-                    header.classList.remove('scrolled');
-                    pageTopBtn.classList.remove('show');
-                }
-            });
-
-            // ページトップボタン
-            const pageTopLink = document.querySelector('#page-top a');
-            pageTopLink.addEventListener('click', function (e) {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            // スムーズスクロール（navリンク以外：ページ内#リンク全般）
-            document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-                // navリンクは上のnavLinks処理で対応済みのためスキップ
-                if (anchor.closest('nav')) return;
-
-                anchor.addEventListener('click', function (e) {
-                    const href = this.getAttribute('href');
-                    if (href === '#' || href === '#top') return;
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        smoothScrollTo(target);
-                    }
-                });
-            });
-
-            // イベント追跡（コンソールログ）
-            document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    console.log('電話リンク:', this.href);
-                });
-            });
-
-            document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    console.log('メールリンク:', this.href);
-                });
-            });
-        });
-    </script>
 
 </body>
 </html>
