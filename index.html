@@ -939,6 +939,14 @@
                 hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
             });
 
+            // スムーズスクロールのユーティリティ
+            // scrollIntoView はページ末尾・iframe含みセクションで止まる問題があるため
+            // window.scrollTo で絶対座標を直接指定する方式に統一
+            function smoothScrollTo(targetEl) {
+                var top = targetEl.getBoundingClientRect().top + window.pageYOffset - 8;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            }
+
             // ナビリンクをタップ：メニューを閉じてからスクロール
             navLinks.forEach(function (link) {
                 link.addEventListener('click', function (e) {
@@ -959,10 +967,10 @@
 
                     if (!target) return;
 
-                    // ② max-heightアニメーション(350ms)が完了してからスクロール
-                    //    レイアウトが確定した後に位置を計算するため
+                    // ② メニューのmax-heightアニメーション(350ms)完了後にスクロール
+                    //    アニメーション中はレイアウト高が変化するため完了後に座標を確定する
                     setTimeout(function () {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        smoothScrollTo(target);
                     }, 370);
                 });
             });
@@ -1010,7 +1018,7 @@
                     e.preventDefault();
                     const target = document.querySelector(href);
                     if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        smoothScrollTo(target);
                     }
                 });
             });
